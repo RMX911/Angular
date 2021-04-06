@@ -9,11 +9,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>hi</td>
-      <td>hello</td>
-      <td>how</td>
-      <td>are</td>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.class }}</td>
+      <td>{{ student.phNo }}</td>
+      <td>{{ student.marks }}</td>
       <td>
         <button class="btn btn-outline-success">
           <i class="fa fa-pencil" aria-hidden="true"></i>
