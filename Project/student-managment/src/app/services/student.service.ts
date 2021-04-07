@@ -8,7 +8,7 @@ export class StudentService {
   students: any = [];
   constructor(http: HttpClient) {
     http.get<any>('../../assets/data.json').subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.students = data;
     });
   }
@@ -16,13 +16,14 @@ export class StudentService {
   getStudents() {
     return this.students;
   }
-  
-  deleteStudentRow(index:Number){
-    this.students.splice(index, 1 );
+
+  deleteStudentRow(index: Number) {
+    this.students.splice(index, 1);
   }
 
-  editStudentRow(index:Number){
-    console.log(index);
+  editStudentRow(index: Number) {
+    this.students[index as any].editable = !this.students[index as any]
+      .editable;
+    return this.students[index as any].editable;
   }
-
 }

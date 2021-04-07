@@ -3,12 +3,14 @@
     "name": "rohan",
     "phNo": "9818804352",
     "class": "2nd year",
-    "marks": 256
+    "marks": 256,
+    "editable": false
   },
   {
     "name": "nahor",
     "phNo": "2534088189",
     "class": "2nd year",
-    "marks": 652
+    "marks": 652,
+    "editable":false
   }
 ]

@@ -10,13 +10,50 @@
   </thead>
   <tbody>
     <tr *ngFor="let student of students; let i = index">
-      <td>{{ student.name }}</td>
-      <td>{{ student.class }}</td>
-      <td>{{ student.phNo }}</td>
-      <td>{{ student.marks }}</td>
+      <td>
+        <span *ngIf="!student.editable">{{ student.name }}</span>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="student.name"
+          *ngIf="student.editable"
+        />
+      </td>
+      <td>
+        <span *ngIf="!student.editable">{{ student.class }}</span>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="student.class"
+          *ngIf="student.editable"
+        />
+      </td>
+      <td>
+        <span *ngIf="!student.editable">{{ student.phNo }}</span>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="student.phNo"
+          *ngIf="student.editable"
+        />
+      </td>
+      <td>
+        <span *ngIf="!student.editable">{{ student.marks }}</span>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="student.marks"
+          *ngIf="student.editable"
+        />
+      </td>
       <td>
         <button (click)="editRow($event, i)" class="btn btn-outline-success">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <i
+            *ngIf="!student.editable"
+            class="fa fa-pencil"
+            aria-hidden="true"
+          ></i>
+          <span *ngIf="student.editable"> Save </span>
         </button>
         <button (click)="deleteRow($event, i)" class="btn btn-outline-danger">
           <i class="fa fa-trash-o" aria-hidden="true"></i>

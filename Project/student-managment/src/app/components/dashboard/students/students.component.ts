@@ -24,6 +24,8 @@ export class StudentsComponent implements OnInit, DoCheck {
   }
 
   editRow(event: Event, index: Number) {
-    this._student.editStudentRow(index);
+    if (event.type == 'click') {
+      this._student.editStudentRow(index);
+    }
   }
 }
