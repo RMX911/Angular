@@ -1,11 +1,11 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Class</th>
-      <th>Ph No</th>
-      <th>Marks</th>
-      <th>Action</th>
+      <th>{{name}}</th>
+      <th>{{class}}</th>
+      <th>{{phno}}</th>
+      <th>{{marks}}</th>
+      <th>{{action}}</th>
     </tr>
   </thead>
   <tbody>
@@ -55,7 +55,11 @@
           ></i>
           <span *ngIf="student.editable"> Save </span>
         </button>
-        <button (click)="deleteRow($event, i)" class="btn btn-outline-danger">
+        <button
+          *ngIf="!student.editable"
+          (click)="deleteRow($event, i)"
+          class="btn btn-outline-danger"
+        >
           <i class="fa fa-trash-o" aria-hidden="true"></i>
         </button>
       </td>

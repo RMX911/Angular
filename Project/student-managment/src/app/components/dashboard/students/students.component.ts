@@ -9,6 +9,11 @@ import { StudentService } from '../../../services/student.service';
 })
 export class StudentsComponent implements OnInit, DoCheck {
   students: any = [];
+  name: String = 'Name';
+  class: String = 'Class';
+  phno: String = 'Ph No';
+  marks : String = 'Marks';
+  action: String = 'Action';
   constructor(private _student: StudentService) {}
 
   ngOnInit(): void {}
