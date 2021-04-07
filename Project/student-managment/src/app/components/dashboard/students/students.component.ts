@@ -17,13 +17,13 @@ export class StudentsComponent implements OnInit, DoCheck {
     this.students = this._student.getStudents();
   }
 
-  deleteRow(event:Event,index:Number){
-    if ( event.type == 'click' ) {
+  deleteRow(event: Event, index: Number) {
+    if (event.type == 'click') {
       this._student.deleteStudentRow(index);
-    }   
+    }
   }
-  
-  editRow(event:Event, index:Number){
-      this._student.editStudentRow(index);
+
+  editRow(event: Event, index: Number) {
+    this._student.editStudentRow(index);
   }
 }
