@@ -21,4 +21,8 @@ export class StudentService {
     this.students.splice(index, 1 );
   }
 
+  editStudentRow(index:Number){
+    console.log(index);
+  }
+
 }

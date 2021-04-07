@@ -7,7 +7,7 @@ import { StudentService } from '../../../services/student.service';
   templateUrl: './students.component.html',
   styleUrls: ['./students.component.css'],
 })
-export class StudentsComponent implements OnInit {
+export class StudentsComponent implements OnInit, DoCheck {
   students: any = [];
   constructor(private _student: StudentService) {}
 
@@ -17,9 +17,13 @@ export class StudentsComponent implements OnInit {
     this.students = this._student.getStudents();
   }
 
-  deleteRow(event:Event,i:Number){
+  deleteRow(event:Event,index:Number){
     if ( event.type == 'click' ) {
-      this._student.deleteStudentRow(i);
+      this._student.deleteStudentRow(index);
     }   
-  } 
+  }
+  
+  editRow(event:Event, index:Number){
+      this._student.editStudentRow(index);
+  }
 }
