@@ -10,7 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchbarComponent } from './components/dashboard/searchbar/searchbar.component';
 import { StudentsComponent } from './components/dashboard/students/students.component';
 
-import { StudentsService } from '../app/services/students.service';
+import { StudentService } from './services/student.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { StudentsService } from '../app/services/students.service';
     StudentsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [StudentsService],
+  providers: [StudentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

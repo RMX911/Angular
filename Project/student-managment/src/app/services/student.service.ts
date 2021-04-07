@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class StudentsService {
+export class StudentService {
   students: any = [];
   constructor(http: HttpClient) {
     http.get<any>('../../assets/data.json').subscribe((data) => {
@@ -16,7 +16,9 @@ export class StudentsService {
   getStudents() {
     return this.students;
   }
-  //  deleteProduct() {
-  //   return []
-  //}
+  
+  deleteStudentRow(index:Number){
+    this.students.splice(index, 1 );
+  }
+
 }
