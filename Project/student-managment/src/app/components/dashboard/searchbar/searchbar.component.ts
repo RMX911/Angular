@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchbarComponent implements OnInit {
   constructor() {}
-
+  addModalVisible:boolean = false;
   ngOnInit(): void {}
+
+  showAddModal(){
+    console.log(this.addModalVisible);
+    this.addModalVisible = !this.addModalVisible;
+  }
 }
