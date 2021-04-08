@@ -14,6 +14,8 @@ export class StudentsComponent implements OnInit, DoCheck {
   phno: String = 'Ph No';
   marks : String = 'Marks';
   action: String = 'Action';
+  showRow:Boolean = false;
+  rowEdit: Boolean = false;
   constructor(private _student: StudentService) {}
 
   ngOnInit(): void {}
@@ -23,14 +25,22 @@ export class StudentsComponent implements OnInit, DoCheck {
   }
 
   deleteRow(event: Event, index: Number) {
+    this.showRow = !this.showRow;
     if (event.type == 'click') {
       this._student.deleteStudentRow(index);
     }
   }
 
   editRow(event: Event, index: Number) {
+    this.showRow = !this.showRow;
     if (event.type == 'click') {
+      this.rowEdit = !this.rowEdit;
+      console.log(this.rowEdit);
       this._student.editStudentRow(index);
     }
+  }
+
+  expandRow(){
+    this.showRow =  !this.showRow;
   }
 }

@@ -10,7 +10,7 @@ import { StudentService } from '../../../services/student.service';
 export class SearchbarComponent implements OnInit, DoCheck {
   modalTitle: String;
   students: any = [];
-  addModalVisible: boolean = true;
+  addModalVisible:String= '';
   formModel: any = {
     name: '',
     phNo: '',
@@ -28,12 +28,12 @@ export class SearchbarComponent implements OnInit, DoCheck {
     this.students = this._student.getStudents();
   }
 
-  showAddModal() {
-    this.addModalVisible = !this.addModalVisible;
-  }
-
   getFormDetails() {
     // this.addModalVisible = !this.addModalVisible;
     this._student.addStudentRow(this.formModel);
+  }
+
+  close(){
+    
   }
 }
