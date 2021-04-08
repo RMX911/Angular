@@ -25,14 +25,14 @@ export class StudentsComponent implements OnInit, DoCheck {
   }
 
   deleteRow(event: Event, index: Number) {
-    this.showRow = !this.showRow;
+   
     if (event.type == 'click') {
       this._student.deleteStudentRow(index);
     }
   }
 
   editRow(event: Event, index: Number) {
-    this.showRow = !this.showRow;
+    
     if (event.type == 'click') {
       this.rowEdit = !this.rowEdit;
       console.log(this.rowEdit);
