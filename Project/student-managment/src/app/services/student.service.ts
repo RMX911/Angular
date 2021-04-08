@@ -26,4 +26,8 @@ export class StudentService {
       .editable;
     return this.students[index as any].editable;
   }
+
+  addStudentRow(newStudent: any) {
+    this.students.push(newStudent);
+  }
 }

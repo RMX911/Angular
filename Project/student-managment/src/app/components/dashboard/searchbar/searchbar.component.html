@@ -10,33 +10,72 @@
   </div>
 
   <div class="col-6 col-md-5">
-    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary">Add New</button>
+    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+      Add New
+    </button>
   </div>
 </div>
 
-
-
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-dialog-scrollable .modal-dialog-centered">
     <div class="modal-content">
-
-      <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{ modalTitle }}</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
       </div>
 
-      <!-- Modal body -->
       <div class="modal-body">
-        Modal body..
-      </div>
+        <form class="form-group" (ngSubmit)="getFormDetails()" #form="ngForm">
+          <label for="name">Name: </label>
+          <input
+            class="form-control"
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="formModel.name"
+            #name="ngModel"
+          />
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success"> Submit </button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
+          <label for="class">Class: </label>
+          <input
+            class="form-control"
+            type="text"
+            id="class"
+            name="class"
+            [(ngModel)]="formModel.class"
+            #class="ngModel"
+          />
 
+          <label for="phoneNumber">Ph No: </label>
+          <input
+            class="form-control"
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            [(ngModel)]="formModel.phNo"
+            #phNo="ngModel"
+          />
+
+          <label for="marks">Marks: </label>
+          <input
+            class="form-control"
+            type="number"
+            id="marks"
+            name="marks"
+            [(ngModel)]="formModel.marks"
+            #marks="ngModel"
+          />
+
+          <div class="modal-footer center">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
