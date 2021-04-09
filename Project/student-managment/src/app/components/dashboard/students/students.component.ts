@@ -9,6 +9,7 @@ import { StudentService } from '../../../services/student.service';
 })
 export class StudentsComponent implements OnInit, DoCheck {
   students: any = [];
+  allStudents: any = [];
   name: String = 'Name';
   class: String = 'Class';
   phno: String = 'Ph No';
@@ -22,6 +23,7 @@ export class StudentsComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.students = this._student.getStudents();
+    this.allStudents = this._student.getStudents();
   }
 
   deleteRow(event: Event, index: Number) {
@@ -41,5 +43,18 @@ export class StudentsComponent implements OnInit, DoCheck {
   expandRow(index: number) {
     // this.showRow =  !this.showRow;
     this._student.expandStudentRow(index);
+  }
+
+  applyFilter(event: Event) {
+    let filterValue = (event.target as HTMLInputElement).value;
+    let filterValueLower = filterValue.toLowerCase();
+
+    if (filterValue === '') {
+      this.students = this.allStudents;
+    } else {
+      this.students = this.allStudents.filter((student: any) => {
+        student.name.includes(filterValueLower);
+      });
+    }
   }
 }
