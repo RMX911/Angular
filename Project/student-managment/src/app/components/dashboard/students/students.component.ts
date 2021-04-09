@@ -12,10 +12,10 @@ export class StudentsComponent implements OnInit, DoCheck {
   name: String = 'Name';
   class: String = 'Class';
   phno: String = 'Ph No';
-  marks : String = 'Marks';
+  marks: String = 'Marks';
   action: String = 'Action';
-  showRow:Boolean = false;
-  rowEdit: Boolean = false;
+  // showRow:Boolean = false;
+  // rowEdit: Boolean = false;
   constructor(private _student: StudentService) {}
 
   ngOnInit(): void {}
@@ -25,22 +25,21 @@ export class StudentsComponent implements OnInit, DoCheck {
   }
 
   deleteRow(event: Event, index: Number) {
-   
     if (event.type == 'click') {
       this._student.deleteStudentRow(index);
     }
   }
 
   editRow(event: Event, index: Number) {
-    
     if (event.type == 'click') {
-      this.rowEdit = !this.rowEdit;
-      console.log(this.rowEdit);
+      // this.rowEdit = !this.rowEdit;
+      // console.log(this.rowEdit);
       this._student.editStudentRow(index);
     }
   }
 
-  expandRow(){
-    this.showRow =  !this.showRow;
+  expandRow(index: number) {
+    // this.showRow =  !this.showRow;
+    this._student.expandStudentRow(index);
   }
 }

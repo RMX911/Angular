@@ -30,4 +30,9 @@ export class StudentService {
   addStudentRow(newStudent: any) {
     this.students.push(newStudent);
   }
+
+  expandStudentRow(index: Number) {
+    this.students[index as any].expand = !this.students[index as any].expand;
+    return this.students[index as any].expand;
+  }
 }
