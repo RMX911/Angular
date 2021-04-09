@@ -8,18 +8,18 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { SearchbarComponent } from './components/dashboard/searchbar/searchbar.component';
 import { StudentsComponent } from './components/dashboard/students/students.component';
 
 import { StudentService } from './services/student.service';
+import { AddModalComponent } from './components/dashboard/add-modal/add-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidenavComponent,
     DashboardComponent,
-    SearchbarComponent,
     StudentsComponent,
+    AddModalComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
   providers: [StudentService],

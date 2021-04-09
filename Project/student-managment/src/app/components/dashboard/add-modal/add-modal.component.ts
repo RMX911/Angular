@@ -1,16 +1,16 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { StudentService } from '../../../services/student.service';
 
 @Component({
-  selector: 'app-searchbar',
-  templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css'],
+  selector: 'app-add-modal',
+  templateUrl: './add-modal.component.html',
+  styleUrls: ['./add-modal.component.css'],
 })
-export class SearchbarComponent implements OnInit, DoCheck {
+export class AddModalComponent implements OnInit {
   modalTitle: String;
   students: any = [];
-  addModalVisible:String= '';
+  addModalVisible: String = '';
   formModel: any = {
     name: '',
     phNo: '',
@@ -33,7 +33,5 @@ export class SearchbarComponent implements OnInit, DoCheck {
     this._student.addStudentRow(this.formModel);
   }
 
-  close(){
-    
-  }
+  close() {}
 }
