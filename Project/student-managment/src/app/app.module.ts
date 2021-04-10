@@ -11,7 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StudentsComponent } from './components/dashboard/students/students.component';
 
 import { StudentService } from './services/student.service';
-import { AddModalComponent } from './components/dashboard/add-modal/add-modal.component';
+import { AddModalComponent } from './components/dashboard/students/add-modal/add-modal.component';
 @NgModule({
   declarations: [
     AppComponent,

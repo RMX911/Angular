@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import { StudentService } from '../../../services/student.service';
+import { StudentService } from '../../../../services/student.service';
 
 @Component({
   selector: 'app-add-modal',
@@ -9,7 +9,8 @@ import { StudentService } from '../../../services/student.service';
 })
 export class AddModalComponent implements OnInit {
   modalTitle: String;
-  students: any = [];
+
+  @Input() students: any = [];
   addModalVisible: String = '';
   formModel: any = {
     name: '',
@@ -20,17 +21,19 @@ export class AddModalComponent implements OnInit {
   };
   constructor(private _student: StudentService) {
     this.modalTitle = 'Add New Student';
+    console.log(this.students);
   }
 
   ngOnInit(): void {}
 
   ngDoCheck(): void {
-    this.students = this._student.getStudents();
+    // this.students = this._student.getStudents();
   }
 
   getFormDetails() {
     // this.addModalVisible = !this.addModalVisible;
-    this._student.addStudentRow(this.formModel);
+    console.log(this.students, this.formModel);
+    this._student.addStudentRow(this.formModel, this.students);
   }
 
   close() {}

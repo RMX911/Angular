@@ -6,33 +6,33 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentService {
   students: any = [];
-  constructor(http: HttpClient) {
-    http.get<any>('../../assets/data.json').subscribe((data) => {
-      // console.log(data);
-      this.students = data;
-    });
+  constructor(private http: HttpClient) {
+    // http.get<any>('../../assets/data.json').subscribe((data) => {
+    //   // console.log(data);
+    //   this.students = data;
+    // });
   }
 
   getStudents() {
-    return this.students;
+    return this.http.get<any>('../../assets/data.json');
   }
 
-  deleteStudentRow(index: Number) {
-    this.students.splice(index, 1);
+  deleteStudentRow(index: Number, students:any) {
+    students.splice(index, 1);
   }
 
-  editStudentRow(index: Number) {
-    this.students[index as any].editable = !this.students[index as any]
+  editStudentRow(index: Number, students:any) {
+    students[index as any].editable = !students[index as any]
       .editable;
-    return this.students[index as any].editable;
+    return students[index as any].editable;
   }
 
-  addStudentRow(newStudent: any) {
-    this.students.push(newStudent);
+  addStudentRow(newStudent: any, students: any) {
+    students.push(newStudent);
   }
 
-  expandStudentRow(index: Number) {
-    this.students[index as any].expand = !this.students[index as any].expand;
-    return this.students[index as any].expand;
+  expandStudentRow(index: Number, students:any) {
+    students[index as any].expand = !students[index as any].expand;
+    return students[index as any].expand;
   }
 }

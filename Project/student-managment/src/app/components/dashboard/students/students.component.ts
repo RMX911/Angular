@@ -15,34 +15,31 @@ export class StudentsComponent implements OnInit, DoCheck {
   phno: String = 'Ph No';
   marks: String = 'Marks';
   action: String = 'Action';
-  // showRow:Boolean = false;
-  // rowEdit: Boolean = false;
   constructor(private _student: StudentService) {}
 
-  ngOnInit(): void {}
-
-  ngDoCheck(): void {
-    this.students = this._student.getStudents();
-    this.allStudents = this._student.getStudents();
+  ngOnInit(): void {
+    this._student.getStudents().subscribe((data) => {
+      this.students = data;
+      this.allStudents = data;
+    });
   }
+
+  ngDoCheck(): void {}
 
   deleteRow(event: Event, index: Number) {
     if (event.type == 'click') {
-      this._student.deleteStudentRow(index);
+      this._student.deleteStudentRow(index, this.students);
     }
   }
 
   editRow(event: Event, index: Number) {
     if (event.type == 'click') {
-      // this.rowEdit = !this.rowEdit;
-      // console.log(this.rowEdit);
-      this._student.editStudentRow(index);
+      this._student.editStudentRow(index, this.students);
     }
   }
 
   expandRow(index: number) {
-    // this.showRow =  !this.showRow;
-    this._student.expandStudentRow(index);
+    this._student.expandStudentRow(index, this.students);
   }
 
   applyFilter(event: Event) {
@@ -52,9 +49,9 @@ export class StudentsComponent implements OnInit, DoCheck {
     if (filterValue === '') {
       this.students = this.allStudents;
     } else {
-      this.students = this.allStudents.filter((student: any) => {
-        student.name.includes(filterValueLower);
-      });
+      this.students = this.allStudents.filter((student: any) =>
+        student.name.toLowerCase().includes(filterValueLower)
+      );
     }
   }
 }
