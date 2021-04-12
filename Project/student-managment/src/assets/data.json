@@ -12,7 +12,63 @@
     "phNo": "2534088189",
     "class": "2nd year",
     "marks": 652,
-    "editable":false,
-    "expand":false
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "atul",
+    "phNo": "9560211223",
+    "class": "4th year",
+    "marks": 612,
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "yash chauhan",
+    "phNo": "9694974390",
+    "class": "4th year",
+    "marks": 912,
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "manishi anand",
+    "phNo": "7766550076",
+    "class": "3rd year",
+    "marks": 312,
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "srijan jain",
+    "phNo": "918837802",
+    "class": "1st year",
+    "marks": 112,
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "atul kumar",
+    "phNo": "9560211233",
+    "class": "3rd year",
+    "marks": 512,
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "yash raj gotiwala",
+    "phNo": "9818804343",
+    "class": "4th year",
+    "marks": 712,
+    "editable": false,
+    "expand": false
+  },
+  {
+    "name": "manish bhargava",
+    "phNo": "9818507745",
+    "class": "4th year",
+    "marks": 689,
+    "editable": false,
+    "expand": false
   }
 ]
