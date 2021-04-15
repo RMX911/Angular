@@ -16,7 +16,7 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.startForm = this.formBuilder.group({
       source: ['', Validators.required],
-      destination: ['', [Validators.required, Validators.minLength(6)]],
+      destination: ['', Validators.required],
       date: ['', Validators.required],
     });
   }
