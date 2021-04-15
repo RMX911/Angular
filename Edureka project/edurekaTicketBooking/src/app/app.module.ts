@@ -10,6 +10,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TicketBookingService } from '../app/services/ticket-booking.service';
 import { UserService } from '../app/services/user.service';
 
+import { routing } from "./app.routing";
+
 import { UserComponent } from './components/user/user.component';
 import { HomepageComponent } from './components/user/homepage/homepage.component';
 import { SearchDetailsComponent } from './components/user/search-details/search-details.component';
@@ -22,7 +24,7 @@ import { SearchDetailsComponent } from './components/user/search-details/search-
     UserComponent,
     SearchDetailsComponent,
   ],
-  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule,routing],
   providers: [TicketBookingService, UserService],
   bootstrap: [AppComponent],
 })

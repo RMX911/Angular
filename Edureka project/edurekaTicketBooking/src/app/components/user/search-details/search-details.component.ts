@@ -24,7 +24,7 @@ export class SearchDetailsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    console.log('Coming from search component', this.travelDetails);
+    // console.log('Coming from search component', this.travelDetails);
     this.source = this.travelDetails.source.toLowerCase();
     this.destination = this.travelDetails.destination.toLowerCase();
 
@@ -37,7 +37,9 @@ export class SearchDetailsComponent implements OnInit, OnChanges {
       this.busDetails = this.allBusDeatils.filter((travelDetails: any) =>
         travelDetails.source.toLowerCase().includes(this.source) && travelDetails.destination.toLowerCase().includes(this.destination)
       );
+      // console.log(this.busDetails)
     }
-
+    // if(this.busDetails.length < this.allBusDeatils.length)
+    //   this._travelDetails.searchSuccessful()
   }
 }

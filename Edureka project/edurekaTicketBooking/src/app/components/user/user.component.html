@@ -1,2 +1,3 @@
-<app-homepage (homePageFormEvent)="recieveFormData($event)"></app-homepage>
-<app-search-details [travelDetails]= "homePageFormData"></app-search-details>
+<app-homepage *ngIf='isVisible' (homePageFormEvent)="recieveFormData($event)"></app-homepage>
+<app-search-details  [travelDetails]= "homePageFormData" ></app-search-details>
+<router-outlet></router-outlet>

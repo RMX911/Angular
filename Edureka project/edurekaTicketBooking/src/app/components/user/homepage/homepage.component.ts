@@ -1,6 +1,7 @@
 import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketBookingService } from '../../../services/ticket-booking.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -10,10 +11,12 @@ export class HomepageComponent implements OnInit {
   startForm: FormGroup = this.formBuilder.group({});
   submitted: boolean = false;
   places: any = [];
+  
   @Output() homePageFormEvent = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
-    private _destination: TicketBookingService
+    private _destination: TicketBookingService,
+    private router:Router
   ) {}
 
   ngOnInit() {
