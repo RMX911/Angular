@@ -1,25 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-import { HomepageComponent } from './components/homepage/homepage.component'
+import { TicketBookingService } from '../app/services/ticket-booking.service';
+import { UserService } from '../app/services/user.service';
 
+import { UserComponent } from './components/user/user.component';
+import { HomepageComponent } from './components/user/homepage/homepage.component';
+import { SearchDetailsComponent } from './components/user/search-details/search-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomepageComponent 
+    HomepageComponent,
+    UserComponent,
+    SearchDetailsComponent,
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
+  providers: [TicketBookingService, UserService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -38,7 +38,7 @@
     {
        "busName":"bus2b",
        "departureTime":"15:00",
-       "coachType":"AC",
+       "coachType":"ac",
        "seatsAvailable":36,
        "fare":470,
        "source":"Gujrat",

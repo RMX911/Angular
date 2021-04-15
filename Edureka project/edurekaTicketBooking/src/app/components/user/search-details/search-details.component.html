@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bus Name</th>
+            <th>Dept. Time</th>
+            <th>Coach Type</th>
+            <th>Seats Avilable</th>
+            <th>Fare</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let busDetail of busDetails">
+                <td>{{busDetail.busName | titlecase}}</td>
+                <td>{{busDetail.departureTime}}</td>
+                <td>{{busDetail.coachType | titlecase}}</td>
+                <td>{{busDetail.seatsAvailable}}</td>
+                <td>{{busDetail.fare | currency:'INR'}}</td>
+                <td ><button class="btn btn-danger">view</button></td>
+            </tr>
+    </tbody>
+</table>

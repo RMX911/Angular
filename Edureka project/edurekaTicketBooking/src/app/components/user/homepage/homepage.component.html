@@ -7,13 +7,20 @@
                    
                     <div class="form-group col-lg-6">
                         <label>Leaving From</label>
-                        <input type="text" class="form-control" formControlName="source">
+                        <select formControlName="source" class="form-control">
+                            <option disabled [selected]="true">From: </option>
+                            <option *ngFor="let place of places">{{place}}</option>
+                        </select>
+                        <!-- <input type="text" class="form-control" formControlName="source"> -->
                         <div *ngIf="submitted && f.source.errors && f.source.errors.required" class="text-danger">Journey source is required</div>
                         
                     </div>
                     <div class="form-group col-lg-6">
                         <label>Going To</label>
-                        <input type="text" class="form-control" formControlName="destination">
+                        <select formControlName="destination" class="form-control">
+                            <option disabled [selected]="true">To: </option>
+                            <option *ngFor="let place of places">{{place}}</option>
+                        </select>
                         <div *ngIf="submitted && f.destination.errors && f.destination.errors.required" class="text-danger">Journey destination is required</div>
                         
                     </div>
