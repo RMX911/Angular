@@ -15,6 +15,7 @@ import { routing } from "./app.routing";
 import { UserComponent } from './components/user/user.component';
 import { HomepageComponent } from './components/user/homepage/homepage.component';
 import { SearchDetailsComponent } from './components/user/search-details/search-details.component';
+import { BusDetailsComponent } from './components/user/bus-details/bus-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { SearchDetailsComponent } from './components/user/search-details/search-
     HomepageComponent,
     UserComponent,
     SearchDetailsComponent,
+    BusDetailsComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule,routing],
   providers: [TicketBookingService, UserService],

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { TicketBookingService } from '../../../services/ticket-booking.service';
 
@@ -14,7 +15,7 @@ export class SearchDetailsComponent implements OnInit, OnChanges {
   destination:string="";
   busDetails:any = []
   allBusDeatils:any = []
-  constructor(private _travelDetails:TicketBookingService) {}
+  constructor(private _travelDetails:TicketBookingService, private router:Router) {}
 
   ngOnInit(): void {
     this._travelDetails.getbusDetails().subscribe((data) => {
@@ -42,4 +43,10 @@ export class SearchDetailsComponent implements OnInit, OnChanges {
     // if(this.busDetails.length < this.allBusDeatils.length)
     //   this._travelDetails.searchSuccessful()
   }
+
+  showDetails(event:Event, index:number){
+    this._travelDetails.storeBusDetails(index, this.busDetails);
+    this.router.navigate(['/busDetails']);
+  }
+
 }

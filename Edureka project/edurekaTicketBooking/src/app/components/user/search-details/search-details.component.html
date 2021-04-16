@@ -17,13 +17,15 @@
         </tr>
     </thead>
     <tbody>
-            <tr *ngFor="let busDetail of busDetails">
+            <tr *ngFor="let busDetail of busDetails; let i = index">
                 <td>{{busDetail.busName | titlecase}}</td>
                 <td>{{busDetail.departureTime}}</td>
                 <td>{{busDetail.coachType | titlecase}}</td>
                 <td>{{busDetail.seatsAvailable}}</td>
                 <td>{{busDetail.fare | currency:'INR'}}</td>
-                <td ><button class="btn btn-danger">view</button></td>
+                <td >
+                    <button (click)="showDetails($event, i)" class="btn btn-danger">view</button>
+                </td>
             </tr>
     </tbody>
 </table>
