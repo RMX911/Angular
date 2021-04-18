@@ -42,6 +42,7 @@ export class HomepageComponent implements OnInit {
       return;
     } else {
       this._destination.sendData(this.startForm.value);
+      sessionStorage.setItem('date',this.startForm.value.date)
       this.router.navigate(['/searchDetails']);
       // this.homePageFormEvent.emit(this.startForm.value);
     }

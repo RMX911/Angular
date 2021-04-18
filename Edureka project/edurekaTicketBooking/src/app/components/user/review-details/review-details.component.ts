@@ -13,6 +13,7 @@ export class ReviewDetailsComponent implements OnInit {
   bookingDeatils: any = {};
   userDetails:any = {}; 
   ticketId = Math.floor(Math.random()*1000000000)
+  date = sessionStorage.getItem('date')
   constructor(
     private _user: UserService,
     private router: Router,
