@@ -12,13 +12,7 @@ import { Router } from '@angular/router';
 export class PassengerDetailsComponent implements OnInit {
   startForm: FormGroup = this.formBuilder.group({});
   submitted: boolean = false;
-  busName: string = '';
-  departureTime: string = '';
-  coachType: string = '';
-  totalfare: number = 0;
-  // source : string = ''
-  // destination: string = ''
-  seatsBooked: string[] = [];
+
   tripDetails: any = {};
   bookingDeatils: any = {};
   constructor(
@@ -34,6 +28,7 @@ export class PassengerDetailsComponent implements OnInit {
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
     });
+
     this.bookingDeatils = this._bookingDetails.getSeatBookingDeatils(
       this.bookingDeatils
     );
