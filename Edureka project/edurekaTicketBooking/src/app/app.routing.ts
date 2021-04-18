@@ -7,7 +7,9 @@ import { SearchDetailsComponent } from "../app/components/user/search-details/se
 import { BusDetailsComponent } from "./components/user/bus-details/bus-details.component";
 
 const routes: Routes = [
-    { path: 'busDetails', component: BusDetailsComponent },
+    { path: '', component: HomepageComponent },
+    { path: 'searchDetails', component: SearchDetailsComponent },
+    { path: 'busDetails', component: BusDetailsComponent }
 ];
 
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(routes);

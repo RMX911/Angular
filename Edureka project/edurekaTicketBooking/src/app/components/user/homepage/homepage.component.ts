@@ -12,7 +12,7 @@ export class HomepageComponent implements OnInit {
   submitted: boolean = false;
   places: any = [];
   
-  @Output() homePageFormEvent = new EventEmitter<any>();
+  // @Output() homePageFormEvent = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
     private _destination: TicketBookingService,
@@ -42,7 +42,9 @@ export class HomepageComponent implements OnInit {
       return;
     }
     else{
-      this.homePageFormEvent.emit(this.startForm.value);
+      this._destination.sendData(this.startForm.value)
+      this.router.navigate(['/searchDetails'])
+      // this.homePageFormEvent.emit(this.startForm.value);
     }
     //console.log(JSON.stringify(this.startForm.value));
   }

@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class TicketBookingService {
   // index:string = "";
   details: any = {}
+  seatsBooked:any=[]
   constructor(private http: HttpClient) {}
   // search:boolean = false;
   getPlaces() {
@@ -26,6 +27,30 @@ export class TicketBookingService {
     details = JSON.parse(sessionStorage.getItem('clickData') || '{}')
     return details;
   }
+
+  sendData(details:any){
+    this.details = details;
+  }
+
+  getData(){
+    return this.details;
+  }
+
+  seatBooking(seatNo:string){
+    if (this.seatsBooked.includes(seatNo)){
+      this.seatsBooked = this.seatsBooked.filter((e:string) => e !== seatNo)
+   }
+   else{
+     this.seatsBooked.push(seatNo)
+   }
+   return this.seatsBooked;
+     // 
+     // this.intendedDeviceStatus[index]= this.intendedDeviceStatus[index] ? 1 : 0;    
+     // console.log(this.intendedDeviceStatus)
+
+ }
+
+  
 
   // searchSuccessful(){
   //   this.search = !this.search;
