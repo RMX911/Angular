@@ -16,6 +16,8 @@ import { UserComponent } from './components/user/user.component';
 import { HomepageComponent } from './components/user/homepage/homepage.component';
 import { SearchDetailsComponent } from './components/user/search-details/search-details.component';
 import { BusDetailsComponent } from './components/user/bus-details/bus-details.component';
+import { PassengerDetailsComponent } from './components/user/passenger-details/passenger-details.component';
+import { ReviewDetailsComponent } from './components/user/review-details/review-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { BusDetailsComponent } from './components/user/bus-details/bus-details.c
     UserComponent,
     SearchDetailsComponent,
     BusDetailsComponent,
+    PassengerDetailsComponent,
+    ReviewDetailsComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule,routing],
   providers: [TicketBookingService, UserService],

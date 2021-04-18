@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
-
+import {Router} from '@angular/router';
 import { TicketBookingService } from '../../../services/ticket-booking.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class BusDetailsComponent implements OnInit, DoCheck {
   selectSeat:boolean = false;
   seatClass:string =''
   total:number = 0
-  constructor(private _travelDetails:TicketBookingService) {}
+  constructor(private _travelDetails:TicketBookingService,  private router:Router) {}
   
   ngOnInit(): void {
     this.busDetails = this._travelDetails.getBusDetails(this.busDetails);
@@ -46,5 +46,12 @@ export class BusDetailsComponent implements OnInit, DoCheck {
  
   }
   
+  onSubmit(){
+    sessionStorage.setItem('bookingData', JSON.stringify({
+      "seatsBooked":this.isChecked,
+      "totalFare": this.isChecked.length * this.seatPrice
+  }));
+    this.router.navigate(['/passengerDetails'])
+  }
 
 }

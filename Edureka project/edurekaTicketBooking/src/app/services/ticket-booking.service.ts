@@ -28,6 +28,11 @@ export class TicketBookingService {
     return details;
   }
 
+  getSeatBookingDeatils(details:any){
+    details = JSON.parse(sessionStorage.getItem('bookingData') || '{}')
+    return details;
+  }
+
   sendData(details:any){
     this.details = details;
   }
