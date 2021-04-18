@@ -26,24 +26,10 @@ export class BusDetailsComponent implements OnInit, DoCheck {
     this.seatPrice = this.busDetails.fare;
     this.seatClass = this.busDetails.coachType;
     this.isChecked = this._travelDetails.seatsBooked;
-    console.log(this.seatPrice)
   }
 
   calculatePrice(seatNo:string){
     this.isChecked = this._travelDetails.seatBooking(seatNo)
-    console.log(this.isChecked)
-  //  console.log(this.isChecked.length)
-  //   if (this.isChecked.includes(seatNo)){
-  //      this.isChecked = this.isChecked.filter((e:string) => e !== seatNo)
-  //   }
-  //   else{
-  //     this.isChecked.push(seatNo)
-  //   }
-  //   console.log(this.isChecked)
-      // 
-      // this.intendedDeviceStatus[index]= this.intendedDeviceStatus[index] ? 1 : 0;    
-      // console.log(this.intendedDeviceStatus)
- 
   }
   
   onSubmit(){

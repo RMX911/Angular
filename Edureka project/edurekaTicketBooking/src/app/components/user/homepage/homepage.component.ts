@@ -1,7 +1,7 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TicketBookingService } from '../../../services/ticket-booking.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -11,18 +11,18 @@ export class HomepageComponent implements OnInit {
   startForm: FormGroup = this.formBuilder.group({});
   submitted: boolean = false;
   places: any = [];
-  
+
   // @Output() homePageFormEvent = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
     private _destination: TicketBookingService,
-    private router:Router
+    private router: Router
   ) {}
 
   ngOnInit() {
     this._destination.getPlaces().subscribe((data) => {
       this.places = data.places;
-      console.log(this.places)
+      console.log(this.places);
     });
 
     this.startForm = this.formBuilder.group({
@@ -40,28 +40,25 @@ export class HomepageComponent implements OnInit {
     this.submitted = true;
     if (this.startForm.invalid) {
       return;
-    }
-    else{
-      this._destination.sendData(this.startForm.value)
-      this.router.navigate(['/searchDetails'])
+    } else {
+      this._destination.sendData(this.startForm.value);
+      this.router.navigate(['/searchDetails']);
       // this.homePageFormEvent.emit(this.startForm.value);
     }
-    //console.log(JSON.stringify(this.startForm.value));
   }
 
-  mustNotMatch(source:string, destination:string){
+  mustNotMatch(source: string, destination: string) {
     return (formGroup: FormGroup) => {
       const src = formGroup.controls[source];
       const dest = formGroup.controls[destination];
 
       if (src.value === dest.value) {
         dest.setErrors({
-          mustNotMatch: true
+          mustNotMatch: true,
         });
       } else {
         dest.setErrors(null);
       }
-    }
-
+    };
   }
 }

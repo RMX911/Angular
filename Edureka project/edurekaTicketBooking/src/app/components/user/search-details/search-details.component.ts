@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { TicketBookingService } from '../../../services/ticket-booking.service';
 
@@ -9,14 +9,16 @@ import { TicketBookingService } from '../../../services/ticket-booking.service';
   styleUrls: ['./search-details.component.css'],
 })
 export class SearchDetailsComponent implements OnInit {
-
   // @Input() travelDetails: any;
-  travelDetails:any;
-  source:string="";
-  destination:string="";
-  busDetails:any = []
-  allBusDeatils:any = []
-  constructor(private _travelDetails:TicketBookingService, private router:Router) {
+  travelDetails: any;
+  source: string = '';
+  destination: string = '';
+  busDetails: any = [];
+  allBusDeatils: any = [];
+  constructor(
+    private _travelDetails: TicketBookingService,
+    private router: Router
+  ) {
     this.travelDetails = _travelDetails.getData();
   }
 
@@ -25,11 +27,9 @@ export class SearchDetailsComponent implements OnInit {
       this.busDetails = data;
       this.allBusDeatils = data;
     });
-
   }
 
-  ngAfterContentChecked(){
-    
+  ngAfterContentChecked() {
     this.source = this.travelDetails.source.toLowerCase();
     this.destination = this.travelDetails.destination.toLowerCase();
 
@@ -39,37 +39,17 @@ export class SearchDetailsComponent implements OnInit {
     if (this.source === '') {
       this.busDetails = this.allBusDeatils;
     } else {
-      this.busDetails = this.allBusDeatils.filter((travelDetails: any) =>
-        travelDetails.source.toLowerCase().includes(this.source) && travelDetails.destination.toLowerCase().includes(this.destination)
+      this.busDetails = this.allBusDeatils.filter(
+        (travelDetails: any) =>
+          travelDetails.source.toLowerCase().includes(this.source) &&
+          travelDetails.destination.toLowerCase().includes(this.destination)
       );
-       console.log(this.busDetails)
+      console.log(this.busDetails);
     }
-    
   }
 
-  // ngOnChanges(): void {
-    // console.log('Coming from search component', this.travelDetails);
-    // this.source = this.travelDetails.source.toLowerCase();
-    // this.destination = this.travelDetails.destination.toLowerCase();
-
-    // let filterValue1 = (event.target as HTMLInputElement).value;
-    // let filterValueLower = filterValue.toLowerCase();
-
-    // if (this.source === '') {
-    //   this.busDetails = this.allBusDeatils;
-    // } else {
-    //   this.busDetails = this.allBusDeatils.filter((travelDetails: any) =>
-    //     travelDetails.source.toLowerCase().includes(this.source) && travelDetails.destination.toLowerCase().includes(this.destination)
-    //   );
-      // console.log(this.busDetails)
-    // }
-    // if(this.busDetails.length < this.allBusDeatils.length)
-    //   this._travelDetails.searchSuccessful()
-  // }
-
-  showDetails(event:Event, index:number){
+  showDetails(event: Event, index: number) {
     this._travelDetails.storeBusDetails(index, this.busDetails);
     this.router.navigate(['/busDetails']);
   }
-
 }

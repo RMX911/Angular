@@ -17,6 +17,6 @@ export class UserComponent implements OnInit, OnChanges {
 
   recieveFormData($event: Event) {
     this.homePageFormData = $event;
-    this.isVisible = !this.isVisible; // console.log("comming from parent component",this.homePageFormData)
+    this.isVisible = !this.isVisible;
   }
 }

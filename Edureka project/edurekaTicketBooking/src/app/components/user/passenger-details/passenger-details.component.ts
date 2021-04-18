@@ -1,33 +1,30 @@
-
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { TicketBookingService } from '../../../services/ticket-booking.service';
-import {Router} from '@angular/router';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-passenger-details',
   templateUrl: './passenger-details.component.html',
-  styleUrls: ['./passenger-details.component.css']
+  styleUrls: ['./passenger-details.component.css'],
 })
 export class PassengerDetailsComponent implements OnInit {
-
   startForm: FormGroup = this.formBuilder.group({});
   submitted: boolean = false;
-  busName:string = ''
-  departureTime:string = ''
-  coachType: string = ''
-  totalfare: number = 0
+  busName: string = '';
+  departureTime: string = '';
+  coachType: string = '';
+  totalfare: number = 0;
   // source : string = ''
   // destination: string = ''
-  seatsBooked: string[] = []
-  tripDetails :any = {}
-  bookingDeatils: any = {}
+  seatsBooked: string[] = [];
+  tripDetails: any = {};
+  bookingDeatils: any = {};
   constructor(
     private formBuilder: FormBuilder,
     private _user: UserService,
-    private router:Router,
+    private router: Router,
     private _bookingDetails: TicketBookingService
   ) {}
 
@@ -37,9 +34,10 @@ export class PassengerDetailsComponent implements OnInit {
       phoneNumber: ['', Validators.required],
       email: ['', Validators.required],
     });
-    this.bookingDeatils = this._bookingDetails.getSeatBookingDeatils(this.bookingDeatils);
+    this.bookingDeatils = this._bookingDetails.getSeatBookingDeatils(
+      this.bookingDeatils
+    );
     this.tripDetails = this._bookingDetails.getBusDetails(this.tripDetails);
-    // this.seatsBooked = this.bookingDeatils.seatsBooked;
   }
 
   get f() {
@@ -50,10 +48,9 @@ export class PassengerDetailsComponent implements OnInit {
     this.submitted = true;
     if (this.startForm.invalid) {
       return;
-    }
-    else{
-      this._user.storeUserDetails(this.startForm.value)
-      this.router.navigate(['/viewBusTicket'])
+    } else {
+      this._user.storeUserDetails(this.startForm.value);
+      this.router.navigate(['/viewBusTicket']);
     }
   }
 }
