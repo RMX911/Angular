@@ -28,4 +28,8 @@ export class ReviewDetailsComponent implements OnInit {
     this.userDetails = this._user.getUserDetails(this.userDetails);
   }
 
+  ngOnDestroy(): void{
+    sessionStorage.clear();
+  }
+
 }
