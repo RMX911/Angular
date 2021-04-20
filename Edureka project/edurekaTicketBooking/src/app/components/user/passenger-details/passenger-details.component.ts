@@ -26,7 +26,7 @@ export class PassengerDetailsComponent implements OnInit {
     this.startForm = this.formBuilder.group({
       name: ['', Validators.required],
       phoneNumber: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
     });
 
     this.bookingDeatils = this._bookingDetails.getSeatBookingDeatils(

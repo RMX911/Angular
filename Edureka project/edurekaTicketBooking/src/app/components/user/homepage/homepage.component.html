@@ -22,7 +22,7 @@
                             <option *ngFor="let place of places">{{place}}</option>
                         </select>
                         <div *ngIf="submitted && f.destination.errors && f.destination.errors.required" class="text-danger">Journey destination is required</div>
-                        
+                        <div *ngIf="submitted && f.destination?.errors && f.destination.errors?.mustNotMatch" class="text-danger">To and From Cannot Be Same!</div>
                     </div>
                 </div>
             

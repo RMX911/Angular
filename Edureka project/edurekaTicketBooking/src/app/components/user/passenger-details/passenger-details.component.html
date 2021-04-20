@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card startForm">
+  <div class="card passengerForm">
     <div class="card-header text-center">Enter Your Details</div>
     <div class="card-body">
       <form [formGroup]="startForm" (ngSubmit)="onFormSubmit()">
@@ -44,6 +44,12 @@
               class="text-danger"
             >
               Email is required
+            </div>
+            <div
+              *ngIf="submitted && f.email.errors && f.email.errors.email"
+              class="text-danger"
+            >
+              Incorrect Email format!
             </div>
           </div>
         </div>

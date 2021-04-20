@@ -29,7 +29,11 @@ export class HomepageComponent implements OnInit {
       source: ['', Validators.required],
       destination: ['', Validators.required],
       date: ['', Validators.required],
+    },
+    {
+      validator: this.mustNotMatch('password', 'confirmPassword')
     });
+
   }
 
   get f() {
@@ -50,16 +54,14 @@ export class HomepageComponent implements OnInit {
 
   mustNotMatch(source: string, destination: string) {
     return (formGroup: FormGroup) => {
-      const src = formGroup.controls[source];
-      const dest = formGroup.controls[destination];
+      const src = formGroup.controls['source'];
+      const dest = formGroup.controls['destination'];
 
-      if (src.value === dest.value) {
+      if (this.startForm.value.source === this.startForm.value.destination && this.startForm.value.destination!='') {
         dest.setErrors({
           mustNotMatch: true,
         });
-      } else {
-        dest.setErrors(null);
-      }
+      } 
     };
   }
 }
