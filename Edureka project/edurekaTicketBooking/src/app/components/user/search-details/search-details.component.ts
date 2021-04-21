@@ -9,7 +9,6 @@ import { TicketBookingService } from '../../../services/ticket-booking.service';
   styleUrls: ['./search-details.component.css'],
 })
 export class SearchDetailsComponent implements OnInit {
-  // @Input() travelDetails: any;
   travelDetails: any;
   source: string = '';
   destination: string = '';
@@ -33,9 +32,6 @@ export class SearchDetailsComponent implements OnInit {
     this.source = this.travelDetails.source.toLowerCase();
     this.destination = this.travelDetails.destination.toLowerCase();
 
-    // let filterValue1 = (event.target as HTMLInputElement).value;
-    // let filterValueLower = filterValue.toLowerCase();
-
     if (this.source === '') {
       this.busDetails = this.allBusDeatils;
     } else {
@@ -44,7 +40,6 @@ export class SearchDetailsComponent implements OnInit {
           travelDetails.source.toLowerCase().includes(this.source) &&
           travelDetails.destination.toLowerCase().includes(this.destination)
       );
-      console.log(this.busDetails);
     }
   }
 

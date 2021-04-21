@@ -18,7 +18,6 @@ export class BusDetailsComponent implements OnInit, DoCheck {
   
   ngOnInit(): void {
     this.busDetails = this._travelDetails.getBusDetails(this.busDetails);
-    console.log(this.busDetails)
   }
   
   ngDoCheck(): void {

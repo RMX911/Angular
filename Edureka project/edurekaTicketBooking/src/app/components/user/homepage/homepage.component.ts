@@ -12,7 +12,6 @@ export class HomepageComponent implements OnInit {
   submitted: boolean = false;
   places: any = [];
 
-  // @Output() homePageFormEvent = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
     private _destination: TicketBookingService,
@@ -22,18 +21,18 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this._destination.getPlaces().subscribe((data) => {
       this.places = data.places;
-      console.log(this.places);
     });
 
-    this.startForm = this.formBuilder.group({
-      source: ['', Validators.required],
-      destination: ['', Validators.required],
-      date: ['', Validators.required],
-    },
-    {
-      validator: this.mustNotMatch('password', 'confirmPassword')
-    });
-
+    this.startForm = this.formBuilder.group(
+      {
+        source: ['', Validators.required],
+        destination: ['', Validators.required],
+        date: ['', Validators.required],
+      },
+      {
+        validator: this.mustNotMatch('password', 'confirmPassword'),
+      }
+    );
   }
 
   get f() {
@@ -46,9 +45,8 @@ export class HomepageComponent implements OnInit {
       return;
     } else {
       this._destination.sendData(this.startForm.value);
-      sessionStorage.setItem('date',this.startForm.value.date)
+      sessionStorage.setItem('date', this.startForm.value.date);
       this.router.navigate(['/searchDetails']);
-      // this.homePageFormEvent.emit(this.startForm.value);
     }
   }
 
@@ -57,11 +55,14 @@ export class HomepageComponent implements OnInit {
       const src = formGroup.controls['source'];
       const dest = formGroup.controls['destination'];
 
-      if (this.startForm.value.source === this.startForm.value.destination && this.startForm.value.destination!='') {
+      if (
+        this.startForm.value.source === this.startForm.value.destination &&
+        this.startForm.value.destination != ''
+      ) {
         dest.setErrors({
           mustNotMatch: true,
         });
-      } 
+      }
     };
   }
 }

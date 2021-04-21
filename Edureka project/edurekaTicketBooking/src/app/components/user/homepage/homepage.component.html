@@ -11,7 +11,6 @@
                             <option disabled [selected]="true">From: </option>
                             <option *ngFor="let place of places">{{place}}</option>
                         </select>
-                        <!-- <input type="text" class="form-control" formControlName="source"> -->
                         <div *ngIf="submitted && f.source.errors && f.source.errors.required" class="text-danger">Journey source is required</div>
                         
                     </div>
